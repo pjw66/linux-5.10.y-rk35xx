@@ -138,6 +138,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-radxa-cm3-io.dtb
 dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-radxa-cm3-rpi-cm4-io.dtb
 dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-radxa-cm3-sodimm-io.dtb
 dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-radxa-e23.dtb
+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-hejiaqin.dtb
 dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-rk817-eink.dtb
 dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-rk817-eink-w6.dtb
 dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-rk817-eink-w103.dtb

@@ -7,37 +7,22 @@
 /dts-v1/;
 
 #include <dt-bindings/gpio/gpio.h>
-#include <dt-bindings/input/input.h>
+#include <dt-bindings/pwm/pwm.h>
 #include <dt-bindings/pinctrl/rockchip.h>
-#include <dt-bindings/soc/rockchip,vop2.h>
+#include <dt-bindings/input/rk-input.h>
+#include <dt-bindings/display/drm_mipi_dsi.h>
+#include <dt-bindings/display/rockchip_vop.h>
+#include <dt-bindings/sensor-dev.h>
+#include <dt-bindings/input/rk-ir.h>
 #include "rk3566.dtsi"
+#include "rk3568-linux.dtsi"
 
 / {
 	model = "RK3566 HeJiaQing";
 	compatible = "rockchip,rk3566";
 
-	aliases {
-		ethernet0 = &gmac1;
-		mmc0 = &sdhci;
-		mmc1 = &sdmmc1;
-	};
-
-	chosen: chosen {
-		stdout-path = "serial2:1500000n8";
-	};
 
 
-	leds: leds {
-		compatible = "gpio-leds";
-		pinctrl-names = "default";
-//		pinctrl-0 =<&leds_gpio>;
-
-		led@1 {
-			gpios = <&gpio0 RK_PB7 GPIO_ACTIVE_HIGH>;
-			label = "status_led";
-			linux,default-trigger = "heartbeat";
-		};
-	};
 
 
 	pdmics: dummy-codec {
@@ -151,7 +136,17 @@
 		
 	};	
 
-	
+	leds: leds {
+		compatible = "gpio-leds";
+		pinctrl-names = "default";
+//		pinctrl-0 =<&leds_gpio>;
+
+		led@1 {
+			gpios = <&gpio0 RK_PB7 GPIO_ACTIVE_HIGH>;
+			label = "status_led";
+			linux,default-trigger = "heartbeat";
+		};
+	};
 
 	rk809_sound: rk809-sound {
 		status = "disabled";		

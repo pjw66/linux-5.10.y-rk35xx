@@ -7071,13 +7071,13 @@ void rtw_wdev_unregister(struct wireless_dev *wdev)
 
 	rtw_cfg80211_indicate_scan_done(adapter, _TRUE);
 
-#if (LINUX_VERSION_CODE >= KERNEL_VERSION(5, 19, 0))
+#if (LINUX_VERSION_CODE >= KERNEL_VERSION(5, 4, 0))
 	if (wdev->connected) {
 		u8 locally_generated = 1;
 		RTW_INFO(FUNC_ADPT_FMT" clear connected by cfg80211_disconnected\n", FUNC_ADPT_ARG(adapter));
 		cfg80211_disconnected(adapter->pnetdev, 0, NULL, 0, locally_generated, GFP_ATOMIC);
 	}
-#elif (LINUX_VERSION_CODE >= KERNEL_VERSION(4, 2, 0)) && (LINUX_VERSION_CODE < KERNEL_VERSION(5, 19, 0))
+#elif (LINUX_VERSION_CODE >= KERNEL_VERSION(4, 2, 0)) && (LINUX_VERSION_CODE < KERNEL_VERSION(5, 4, 0))
 	if (wdev->current_bss) {
 		u8 locally_generated = 1;
 		RTW_INFO(FUNC_ADPT_FMT" clear current_bss by cfg80211_disconnected\n", FUNC_ADPT_ARG(adapter));

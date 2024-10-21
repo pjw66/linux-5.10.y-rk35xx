@@ -14,6 +14,18 @@
 	aliases {
 		ethernet1 = &pcie_eth;
 	};
+
+	gpio_keys: gpio-keys {
+		compatible = "gpio-keys";
+		status = "okay";
+
+		key-factory {
+			debounce-interval = <100>;
+			gpios = <&gpio4 RK_PB5 GPIO_ACTIVE_LOW>;
+			label = "GPIO Key F15";
+			linux,code = <KEY_F15>;
+		};
+	};
 };
 
 &i2c3 {
@@ -36,7 +48,7 @@
 		pcie_eth: pcie-eth@10,0 {
 			compatible = "pci10ec,8168";
 			reg = <0x000000 0 0 0 0>;
-			realtek,led-data = <0x0870>;
+			realtek,led-data = <0x0780>;
 		};
 	};
 };
